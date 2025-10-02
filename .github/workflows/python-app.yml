@@ -26,6 +26,9 @@ jobs:
             python-version: '3.8'
         
         # Step 3: Install dependencies
+        # So pip tries to install a package literally named install → “No matching distribution found for install”.
+        # Use a multiline run: | block (or &&). While we’re here, let’s bump action versions and add pip caching.
+        
         - name: Install dependencies
           run: |
             python -m pip install --upgrade pip
